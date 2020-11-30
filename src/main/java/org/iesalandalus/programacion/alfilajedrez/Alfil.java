@@ -7,7 +7,10 @@ import javax.naming.OperationNotSupportedException;
 public class Alfil {
 	private Color color;
 	private Posicion posicion;
-	
+	public  Alfil () {
+		this.color=Color.NEGRO;
+		this.posicion=new Posicion(8,'f');
+	}
 	public Alfil(Color color) {
 		this.color=color;
 		if (color == null) {
