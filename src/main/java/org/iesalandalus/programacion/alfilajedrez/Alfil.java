@@ -114,6 +114,10 @@ public class Alfil {
 	private void setPosicion(Posicion posicion) {
 		this.posicion = posicion;
 	}
+	@Override
+	public String toString() {
+		return "" + posicion + ", color=" + color + "";
+	}
 
 }
 
