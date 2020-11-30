@@ -31,6 +31,7 @@ public class Alfil {
 			}
 
 	}
+	
 
 	public Color getColor() {
 		return color;
