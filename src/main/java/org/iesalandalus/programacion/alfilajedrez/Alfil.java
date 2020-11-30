@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.alfilajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 public class Alfil {
 	private Color color;
 	private Posicion posicion;
@@ -31,6 +33,57 @@ public class Alfil {
 			}
 
 	}
+	public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {
+		if (direccion == null) {
+			throw new NullPointerException ("ERROR: La dirección no puede ser nula.");
+		}
+		if (pasos < 1) {
+			throw new IllegalArgumentException("ERROR: El número de pasos debe ser positivo.");
+		}
+		switch (direccion) {
+			case ARRIBA_IZQUIERDA:
+				if(posicion.getFila()+1<=8 && posicion.getColumna()+1<='a') {
+					posicion.setFila(posicion.getFila()+pasos);
+					posicion.setColumna((char)(posicion.getColumna()-pasos));
+				} else {
+					throw new OperationNotSupportedException ("ERROR: Movimiento no válido (se sale del tablero).");
+				}
+				break;
+			case ARRIBA_DERECHA:
+				if(posicion.getFila()+1<=8 && posicion.getColumna()+1<='h') {
+					posicion.setFila(posicion.getFila()+pasos);
+					posicion.setColumna((char)(posicion.getColumna()+pasos));
+				} else {
+					throw new OperationNotSupportedException ("ERROR: Movimiento no válido (se sale del tablero).");
+				}
+				
+				break;
+			case ABAJO_DERECHA:
+				if(posicion.getFila()-1>=1 && posicion.getColumna()+1<='h') {
+					posicion.setFila(posicion.getFila()-pasos);
+					posicion.setColumna((char)(posicion.getColumna()+pasos));
+				} else {
+					throw new OperationNotSupportedException ("ERROR: Movimiento no válido (se sale del tablero).");
+				}
+				break;
+			case ABAJO_IZQUIERDA:
+				if(posicion.getFila()-1>=1 && posicion.getColumna()-1>='a') {
+					posicion.setFila(posicion.getFila()-pasos);
+					posicion.setColumna((char)(posicion.getColumna()-pasos));
+				} else {
+					throw new OperationNotSupportedException ("ERROR: Movimiento no válido (se sale del tablero).");
+				}
+				break;
+				
+
+		}
+
+
+	
+
+		
+	}
+
 	
 
 	public Color getColor() {
