@@ -15,8 +15,23 @@ public class Alfil {
 			this.posicion=new Posicion(8,'f');
 		}
 	}
-	
-	
+	public Alfil(Color color,char columna) {
+		this.color=color;
+		if (color == null) {
+			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
+		}
+			if(columna == 'c' || columna == 'f') {	
+				if(color == color.BLANCO) {
+					this.posicion=new Posicion(1,columna);
+				}else {
+					this.posicion=new Posicion(8,columna);
+				}			
+			}else {
+				throw new IllegalArgumentException("ERROR: Columna no válida.");
+			}
+
+	}
+
 	public Color getColor() {
 		return color;
 	}
